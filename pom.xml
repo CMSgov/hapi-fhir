@@ -1523,6 +1523,21 @@
 			</plugin>
 			<!-- <plugin> <groupId>com.github.github</groupId> <artifactId>site-maven-plugin</artifactId> <version>0.12</version> <configuration> <message>Building site for ${project.version}</message> <server>github</server> 
 				</configuration> <executions> <execution> <goals> <goal>site</goal> </goals> <phase>site-deploy</phase> </execution> </executions> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<!-- Always generate a source JAR. This is a best practice, but is 
+							also required by OSSRH/Maven Central. -->
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
